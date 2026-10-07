@@ -18,7 +18,7 @@
 - [温度采样](#temperature)
 - [Decoder-only 与实验实现清单](#decoder-only)
 
-<a id="seq2seq"></a>
+<a id="seq2seq" name="seq2seq"></a>
 ## 1. Seq2seq 与整体结构
 
 **对应课件第 2–3、15、29、50 页。** Sequence-to-sequence 输入一个序列，输出另一个序列，二者长度可不同：
@@ -44,7 +44,7 @@ flowchart LR
   L --> P["Softmax 与下一 token 分布"]
 ```
 
-<a id="encoder"></a>
+<a id="encoder" name="encoder"></a>
 ## 2. Encoder、前馈网络与 BERT
 
 **对应课件第 4–7、12–13 页。** Encoder 每层通常包含多头自注意力和逐位置前馈网络，配合残差连接与归一化；叠加多个 block 后，将每个输入位置转换为加入上下文的表示。
@@ -54,17 +54,17 @@ flowchart LR
 在原始 Post-LN 布局下，单层可写成：
 
 $$
-U=\operatorname{LN}\bigl(X+\operatorname{MultiHeadSelfAttention}(X)\bigr),
+U=\mathrm{LN}\bigl(X+\mathrm{MultiHeadSelfAttention}(X)\bigr),
 $$
 
 $$
-H=\operatorname{LN}\bigl(U+\operatorname{FFN}(U)\bigr).
+H=\mathrm{LN}\bigl(U+\mathrm{FFN}(U)\bigr).
 $$
 
 课件把前馈子层简写成 FC。补充原始 Transformer 的具体形式：
 
 $$
-\operatorname{FFN}(x)=\max(0,xW_1+b_1)W_2+b_2,
+\mathrm{FFN}(x)=\max(0,xW_1+b_1)W_2+b_2,
 $$
 
 其中 $W_1\in\mathbb R^{d\times d_{\text{ff}}}$ 、 $W_2\in\mathbb R^{d_{\text{ff}}\times d}$ 。同一层的 FFN 参数在各位置共享，FFN 负责逐位置的非线性变换，注意力负责跨位置的信息混合。不同 block 通常有不同参数。实际训练还可包含 dropout；上述公式突出课件讲解的主干。
@@ -73,7 +73,7 @@ $$
 
 BERT 使用 Transformer encoder 类型的架构；它通过双向上下文形成表示，而非把传统自回归 Decoder 直接换名。[BERT 原论文](https://arxiv.org/abs/1810.04805)
 
-<a id="normalization"></a>
+<a id="normalization" name="normalization"></a>
 ## 3. LayerNorm、BatchNorm 与 Pre/Post-LN
 
 **对应课件第 6–11、14 页；合并第 2 份课件第 55–56 页。**
@@ -84,11 +84,11 @@ BERT 使用 Transformer encoder 类型的架构；它通过双向上下文形成
 
 $$
 \mu=\frac1D\sum_{j=1}^D x_j,\qquad
-\operatorname{var}(x)=\frac1D\sum_{j=1}^D(x_j-\mu)^2,
+\mathrm{var}(x)=\frac1D\sum_{j=1}^D(x_j-\mu)^2,
 $$
 
 $$
-\operatorname{LN}(x)_j=\gamma_j\frac{x_j-\mu}{\sqrt{\operatorname{var}(x)+\epsilon}}+\beta_j.
+\mathrm{LN}(x)_j=\gamma_j\frac{x_j-\mu}{\sqrt{\mathrm{var}(x)+\epsilon}}+\beta_j.
 $$
 
 补充的 $\epsilon>0$ 防止除零， $\gamma,\beta$ 是可学习的缩放与平移参数。归一化后、仿射变换前的统计量被控制，但最终输出不必严格均值为 0、方差为 1。
@@ -112,8 +112,8 @@ $$
 对于任一注意力或 FFN 子层 $F$ ：
 
 $$
-\text{Post-LN}: y=\operatorname{LN}(x+F(x)),\qquad
-\text{Pre-LN}: y=x+F(\operatorname{LN}(x)).
+\text{Post-LN}: y=\mathrm{LN}(x+F(x)),\qquad
+\text{Pre-LN}: y=x+F(\mathrm{LN}(x)).
 $$
 
 ![Post-LN 与 Pre-LN 原图对照，课件第14页](../assets/ch03/pre-post-ln.png)
@@ -124,7 +124,7 @@ $$
 
 相关阅读保留课件指定的 [Layer Normalization](https://arxiv.org/abs/1607.06450)、[PowerNorm: Rethinking Batch Normalization in Transformers](https://arxiv.org/abs/2003.07845)，以及备注中的 [Improving Deep Transformer with Depth-Scaled Initialization and Merged Attention](https://arxiv.org/abs/1908.11365)。
 
-<a id="autoregressive"></a>
+<a id="autoregressive" name="autoregressive"></a>
 ## 4. 自回归 Decoder、因果掩码与停止
 
 **对应课件第 16–26 页。** 自回归（Autoregressive，AT）把联合概率分解为：
@@ -156,7 +156,7 @@ M_{i,j}=\begin{cases}0&j\le i\\-\infty&j>i,\end{cases}
 $$
 
 $$
-A=\operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M\right).
+A=\mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M\right).
 $$
 
 四个位置的掩码为：
@@ -178,7 +178,7 @@ $$
 
 加入 END / EOS 后，目标序列应包含停止标记；模型生成 EOS 时结束。课件第 26 页完整路径为 `BOS → 机 → 器 → 学 → 习 → EOS`。实际生成还应设最大长度以处理一直不产生 EOS 的情况；课件提到训练或蒸馏问题可能造成不停输出，不能仅据这一现象判定具体原因。
 
-<a id="nat"></a>
+<a id="nat" name="nat"></a>
 ## 5. 非自回归 Decoder
 
 **对应课件第 27–28 页。** 非自回归（Non-autoregressive，NAT）减少或取消逐 token 对先前生成 token 的依赖，允许并行产生多个位置。课件用多个 START / 占位输入同时生成 $w_1,w_2,w_3,w_4$ 作简化图示。
@@ -195,7 +195,7 @@ $$
 
 课件所说的 **multi-modality** 在这里指**同一输入存在多个合理目标序列**，并非“图像、文字、语音”的模态类别。若各位置独立选择不同目标模式，可能生成相互不协调的词序列。NAT 的实际性能取决于依赖设计、蒸馏、迭代修正等方法，不是所有 NAT 都必然劣于 AT。
 
-<a id="cross-attention"></a>
+<a id="cross-attention" name="cross-attention"></a>
 ## 6. Cross-attention 与 T5
 
 **对应课件第 30–32 页。** 在 self-attention 中，QKV 来自同一表示序列；在 cross-attention 中，**Q 来自 Decoder 当前层表示，K 与 V 来自 Encoder 输出**。它让目标生成位置选择源序列里相关的信息。
@@ -207,7 +207,7 @@ Q=H_dW_Q,\qquad K=H_eW_K,\qquad V=H_eW_V,
 $$
 
 $$
-O=\operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M_{\text{source-padding}}\right)V.
+O=\mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M_{\text{source-padding}}\right)V.
 $$
 
 分数矩阵形状为 $T\times N$ ，源长度与目标长度不必相同。Decoder 目标序列需要因果限制，Encoder 源序列通常已全部可见，因此 cross-attention 不使用目标的下三角掩码，但应屏蔽源序列 padding。
@@ -222,7 +222,7 @@ $$
 
 课件提到 Google 的 T5：Text-to-Text Transfer Transformer，使用 Encoder–Decoder 结构，将任务统一组织成文本到文本形式。
 
-<a id="teacher-forcing"></a>
+<a id="teacher-forcing" name="teacher-forcing"></a>
 ## 7. Teacher forcing 与下一 token 训练
 
 **对应课件第 33–36 页。** 每个位置的模型分布与真实标签比较，最小化交叉熵。第 34 页例子中，正确标签“机”的 one-hot 概率为 1，模型给“机”0.7，其他“学、器、鬼”各为 0.1，因此这一步损失为：
@@ -258,7 +258,7 @@ $$
 
 课件文字“标签右移一位”容易与数组索引方向混淆。准确关系是：**第 $i$ 个输出预测原始序列第 $i+1$ 个 token**；相对未移位的完整序列，作为 Decoder 输入的前缀向右增加了 BOS，而监督标签取后缀。不同接口可能内部自动 shift，必须核实并只移位一次。
 
-<a id="loss"></a>
+<a id="loss" name="loss"></a>
 ## 8. 交叉熵完整数值例题
 
 **对应课件第 37–40 页及图片。** 用 $S$ 表示参与损失的有效 token 数， $t_i$ 表示第 $i$ 个真实 token 的词表索引， $p_{i,t_i}$ 表示该位置对正确 token 的预测概率：
@@ -330,7 +330,7 @@ $$
 
 实际实现可直接把 logits 交给支持 log-softmax 的交叉熵函数以提高数值稳定性。padding 对应标签要忽略；分母为有效监督 token 数。是否纳入 EOS、只监督回答部分还是全文，需要与训练目标一致。
 
-<a id="optimization"></a>
+<a id="optimization" name="optimization"></a>
 ## 9. 优化器与学习率调度
 
 **对应课件第 41–43 页；合并第 2 份课件第 59–60 页及两章备注。** 优化器决定如何根据梯度更新参数，学习率调度决定总体步长如何随训练进程变化。
@@ -418,7 +418,7 @@ $$
 
 余弦衰减是平滑 annealing，不能等同于分段常数的 step decay；也不保证避开局部最优。原课件把二者混写，这里保留方法并修正分类。
 
-<a id="padding"></a>
+<a id="padding" name="padding"></a>
 ## 10. Padding 与掩码
 
 **对应课件第 44–45 页及第 51 页 Left Padding 提示。** 普通 batch 需要可堆叠的张量，不同长度的输入通过补齐形成统一长度：
@@ -442,7 +442,7 @@ Decoder-only 批量生成时，若代码直接取 `logits[:, -1, :]`，左填充
 
 若某个 Query 的所有 Key 都被屏蔽，直接 softmax 全为 $-\infty$ 的分数可能出现 NaN；实现需对 padding query 与掩码组合做一致处理。补齐的位置可以有内部表示，但不应作为有效预测参与损失或生成。
 
-<a id="beam"></a>
+<a id="beam" name="beam"></a>
 ## 11. Greedy 与 Beam Search
 
 **对应课件第 46–47 页。** Greedy decoding 每步选择当前最高概率 token：
@@ -492,7 +492,7 @@ $$
 
 课件第 46 页标题提到 GPT，这并不表示所有 GPT 类生成都默认使用 beam search；解码策略是独立配置。
 
-<a id="temperature"></a>
+<a id="temperature" name="temperature"></a>
 ## 12. 温度采样
 
 **对应课件第 48 页，包括图片中的公式与说明。** 给定第 $i$ 个 token 的 logit $z_i$ ，温度 $\tau>0$ 的分布为：
@@ -517,7 +517,7 @@ $$
 
 课件提出“上下文重复怎么处理”，没有给出完整答案。补充可操作方向：检查训练样本与停止条件，设置适当的生成长度，可结合 top-k / top-p、重复惩罚或重复 n-gram 限制；这些属于生成策略补充，不把温度本身当成解决重复的保证。
 
-<a id="decoder-only"></a>
+<a id="decoder-only" name="decoder-only"></a>
 ## 13. Decoder-only 与实验实现清单
 
 **对应课件第 49、51 页；合并第 2 份课件第 58 页。** GPT、LLaMA、Falcon、Mistral 等课件列举的模型使用 decoder-only 类型的自回归主干。它堆叠 causal self-attention 与 FFN，配残差、归一化和位置机制，没有经典 Encoder–Decoder 的独立源 Encoder 与 cross-attention 子层。
@@ -550,11 +550,11 @@ flowchart LR
 课件只给出名称。为了能理解实验的激活选择，补充其定义与常用近似：
 
 $$
-\operatorname{GELU}(x)=x\Phi(x),
+\mathrm{GELU}(x)=x\Phi(x),
 $$
 
 $$
-\operatorname{GELU}(x)\approx\frac x2\left[1+\tanh\left(\sqrt{\frac2\pi}(x+0.044715x^3)\right)\right].
+\mathrm{GELU}(x)\approx\frac x2\left[1+\tanh\left(\sqrt{\frac2\pi}(x+0.044715x^3)\right)\right].
 $$
 
 $\Phi$ 为标准正态分布的累积分布函数。它对输入做平滑的概率式门控，与 ReLU 的硬截断不同；精确版本和 tanh 近似版本应在实现中明确选择。[GELU 原论文](https://arxiv.org/abs/1606.08415)

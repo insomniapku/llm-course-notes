@@ -16,7 +16,7 @@
 - [全部激活函数与梯度性质](#activations)
 - [归一化及稳定训练](#stability)
 
-<a id="origin"></a>
+<a id="origin" name="origin"></a>
 ## 1. 注意力的直觉与发展
 
 **对应课件第 2–4 页。** 心理学意义的注意力是选择性处理信息、分配有限认知资源的过程。课件引用威廉·詹姆斯的观点作引入：面对同时出现的对象或思维，集中处理其中相关的一部分。神经网络中的注意力把这种“选择相关信息”转化为可学习的权重计算。
@@ -48,7 +48,7 @@
 
 日期修正依据：[RoFormer / RoPE（2021）](https://arxiv.org/abs/2104.09864)、[LoRA（2021）](https://arxiv.org/abs/2106.09685)。本章不把历史时间线改写为当前模型排名。
 
-<a id="inputs"></a>
+<a id="inputs" name="inputs"></a>
 ## 2. 向量序列输入与三种输出任务
 
 **对应课件第 5–12 页。** 单个向量输入可以预测一个标量或类别；实际任务往往输入一组向量，序列长度可以变化。文字、语音、图结构都需要变成数值表示。
@@ -101,7 +101,7 @@ x_i = [元素类型, 电荷, 杂化方式, 芳香性, 连接度, ...]
 
 本讲核心从序列标注出发。`I saw a saw` 的标签分别为代词、动词、限定词、名词；两个相同拼写的 saw 需要不同的上下文表示。
 
-<a id="context"></a>
+<a id="context" name="context"></a>
 ## 3. 从独立分类到上下文建模
 
 **对应课件第 13–17 页。** 对每个词独立应用共享的全连接网络，若两个 saw 的输入向量一样，就会产生一样的输出，无法区分词性。引入局部窗口能获得附近信息，但很大的窗口会增加参数与计算负担，也不自然适应不同长度。
@@ -119,7 +119,7 @@ flowchart LR
 
 课件描述层次分工：浅层可能处理词形、位置与局部关系，中间层形成句法与语义表示，高层更贴近预测任务。这是常见的解释性观察，具体头或层的分工需要实证分析；反复堆叠并不保证任意加深都提高精度。
 
-<a id="qkv"></a>
+<a id="qkv" name="qkv"></a>
 ## 4. 单个位置的 QKV 计算
 
 **对应课件第 18–23 页。** 为与原稿一致，先用列向量 $a^i$ 表示第 $i$ 个位置，**上标 $i$ 是位置索引，不是幂**。可学习参数对所有位置共享：
@@ -184,7 +184,7 @@ flowchart LR
   V --> O
 ```
 
-<a id="matrix"></a>
+<a id="matrix" name="matrix"></a>
 ## 5. 矩阵形式、维度与并行计算
 
 **对应课件第 24–28 页。** 为与常见实现一致，以下改用**每行一个位置**的约定：
@@ -202,11 +202,11 @@ $$
 | $Q,K$ | $N\times d_k$ | 每个位置的查询与键 |
 | $V$ | $N\times d_v$ | 每个位置的值 |
 | $S=QK^\top/\sqrt{d_k}$ | $N\times N$ | 行为 Query、列为 Key 的分数 |
-| $A=\operatorname{softmax}_{\text{行}}(S)$ | $N\times N$ | 每行和为 1 的注意力权重 |
+| $A=\mathrm{softmax}_{\text{行}}(S)$ | $N\times N$ | 每行和为 1 的注意力权重 |
 | $O=AV$ | $N\times d_v$ | 加入上下文的输出 |
 
 $$
-\operatorname{Attention}(Q,K,V)=\operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V.
+\mathrm{Attention}(Q,K,V)=\mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V.
 $$
 
 对于课件的四位置例子，分数矩阵包含全部 16 个两两匹配项：
@@ -231,7 +231,7 @@ $$
 
 $$
 S_c=\frac{K_c^\top Q_c}{\sqrt{d_k}},\quad
-A_c=\operatorname{softmax}_{\text{列}}(S_c),\quad O_c=V_cA_c.
+A_c=\mathrm{softmax}_{\text{列}}(S_c),\quad O_c=V_cA_c.
 $$
 
 此时行是 Key、列是 Query，每列的权重和为 1。它与行向量形式互为转置；**不能把列堆叠的 QKV 与行 softmax 的公式直接拼在一起**。课件把输入记为 $I$ ，这里的 $I$ 不是单位矩阵。
@@ -240,7 +240,7 @@ $$
 
 标准稠密注意力在匹配与聚合阶段约需 $O(N^2d_k+N^2d_v)$ 运算，显式保存权重需要 $O(N^2)$ 空间；此外还包括线性投影成本。并行计算不等于总计算量小。
 
-<a id="multihead"></a>
+<a id="multihead" name="multihead"></a>
 ## 6. 多头自注意力
 
 **对应课件第 29–31 页。** 不同头可以学习不同类型的相关性。课件以两个头说明：
@@ -254,7 +254,7 @@ $$
 
 $$
 s^{(h)}_{i,j}=\frac{(q^{i,h})^\top k^{j,h}}{\sqrt{d_k}},\qquad
-b^{i,h}=\sum_j\operatorname{softmax}_j(s^{(h)}_{i,j})v^{j,h}.
+b^{i,h}=\sum_j\mathrm{softmax}_j(s^{(h)}_{i,j})v^{j,h}.
 $$
 
 两个头的输出拼接后经过输出投影：
@@ -268,16 +268,16 @@ $$
 统一的行向量公式为：
 
 $$
-\operatorname{head}_h=\operatorname{Attention}(XW_h^Q,XW_h^K,XW_h^V),
+\mathrm{head}_h=\mathrm{Attention}(XW_h^Q,XW_h^K,XW_h^V),
 $$
 
 $$
-\operatorname{MultiHead}(X)=\operatorname{Concat}(\operatorname{head}_1,\ldots,\operatorname{head}_H)W^O.
+\mathrm{MultiHead}(X)=\mathrm{Concat}(\mathrm{head}_1,\ldots,\mathrm{head}_H)W^O.
 $$
 
 常见设置 $d_k=d_v=d/H$ ，因此 $d$ 必须能按所选头数切分；拼接恢复宽度 $d$ 。多头允许同时表达多种关系，并不保证每个头都有固定的人类可读语义。
 
-<a id="position"></a>
+<a id="position" name="position"></a>
 ## 7. 位置编码
 
 **对应课件第 32–33 页。** 纯粹不带位置编码或掩码的自注意力对输入重排保持等变，内容本身不能完整决定先后顺序。课件把它简写为“因为并行所以没有位置信息”，更准确的原因是计算没有显式引入位置，而非并行本身造成丢失。
@@ -299,7 +299,7 @@ $$
 
 原图把一个位置向量按列展示，并将 sine / cosine 区域分成两半；备注用 20 个位置、512 维表示举例。图像转置及按半区排列是一种展示方式，不能据此把标准公式的奇偶维交错约定混淆。自注意力在 Transformer 与 BERT 等 NLP 架构中广泛使用。
 
-<a id="comparison"></a>
+<a id="comparison" name="comparison"></a>
 ## 8. 与 CNN、RNN、LSTM 的比较
 
 **对应课件第 34–38 页及备注。**
@@ -327,7 +327,7 @@ Few-shot linear evaluation 是冻结预训练特征，在少量标注样本上�
 
 RNN / LSTM 通过状态保存记忆；自注意力直接访问各位置表示，容易建立远距离联系。训练时注意力位置可并行，但**自回归生成不同时间步仍顺序进行**。课件还引用 [Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention](https://arxiv.org/abs/2006.16236)：特定线性注意力可改写为递归计算，它不是说所有标准 softmax Transformer 都等同于普通 RNN。备注另列 [Attention-based Memory Selection Recurrent Network for Language Modeling](https://arxiv.org/abs/1611.08656) 作为 RNN 与注意力结合的相关阅读。
 
-<a id="residual"></a>
+<a id="residual" name="residual"></a>
 ## 9. ResNet、残差与扩展深度
 
 **对应课件第 39–41 页、第 57 页。** 深度网络存在退化问题：增加层数后，训练误差也可能变大；这与单纯过拟合造成测试误差增大不同。课件展示 56 层普通网络与 20 层普通网络的训练、测试误差对照。
@@ -360,7 +360,7 @@ flowchart LR
 
 ResNet-34 原图说明捷径如何贯穿更深架构；课件据此引出具有很多 Attention block、甚至上百层的大模型可扩展性。是否能有效扩展还取决于归一化、初始化、优化和数据等条件。
 
-<a id="activations"></a>
+<a id="activations" name="activations"></a>
 ## 10. 全部激活函数与梯度性质
 
 **对应课件第 42–53 页、第 61–63 页及备注；第 1 章重复介绍在此展开。** 激活函数引入非线性。导数连乘可以导致梯度问题，因此不仅要看输出曲线，也要看导数。
@@ -384,8 +384,8 @@ $$
 ### 10.3 ReLU
 
 $$
-\operatorname{ReLU}(x)=\max(0,x),\qquad
-\operatorname{ReLU}'(x)=\begin{cases}0&x<0\\1&x>0.\end{cases}
+\mathrm{ReLU}(x)=\max(0,x),\qquad
+\mathrm{ReLU}'(x)=\begin{cases}0&x<0\\1&x>0.\end{cases}
 $$
 
 计算简单、速度快，正区间导数为 1，广泛用于隐藏层。负区间导数为 0，可能出现长期不再更新的“死亡神经元”；零点不可微，实现选择约定的次梯度。正区间不饱和，也不自动防止激活过大、数值溢出或整个网络的梯度爆炸。
@@ -463,7 +463,7 @@ $$
 
 原图中的性质标签只作为辅助，公式和上面的条件说明优先。函数的零中心、是否平滑，以及实际输出分布的均值方差，是不同性质。
 
-<a id="stability"></a>
+<a id="stability" name="stability"></a>
 ## 11. 归一化及稳定训练
 
 **对应课件第 55–60 页、第 64 页；第 54 页只有预告与品牌图，已删除。** 课件提出激活均值接近 0、方差接近 1 有助于稳定训练，理由包括：
@@ -483,11 +483,11 @@ $$
 ### 11.2 Post-LN 与 Pre-LN
 
 $$
-\text{Post-LN}:\quad y=\operatorname{LN}(x+F(x)),
+\text{Post-LN}:\quad y=\mathrm{LN}(x+F(x)),
 $$
 
 $$
-\text{Pre-LN}:\quad y=x+F(\operatorname{LN}(x)).
+\text{Pre-LN}:\quad y=x+F(\mathrm{LN}(x)).
 $$
 
 原始 Transformer 使用 Post-LN。Pre-LN 通常更易稳定优化，课件据此强调其可扩展性；课件的“无需 warm-up”应理解为相关论文在特定设置中可移除预热，并非所有规模和训练方案都如此。[LayerNorm 位置研究](https://arxiv.org/abs/2002.04745)

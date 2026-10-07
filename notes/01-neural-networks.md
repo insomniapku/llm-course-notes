@@ -13,7 +13,7 @@
 - [RNN 与长期依赖](#rnn)
 - [LSTM 的状态与门控公式](#lstm)
 
-<a id="history"></a>
+<a id="history" name="history"></a>
 ## 1. 深度学习与大模型的发展
 
 **对应课件第 4–9 页。** 深度学习通过多层可训练的非线性变换学习数据表示。课件用以下代表性工作说明应用范围：
@@ -49,7 +49,7 @@ LLaMA 为 decoder-only 自回归预训练模型；课件第 9 页图中，LLaMA2
 
 原图来源：课件引用的 [A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)；第 9 页备注另列 [A Survey on Recent Advances in LLM-Based Multi-turn Dialogue Systems](https://arxiv.org/abs/2402.18013)。这里保留课件给出的来源关系，不宣称每张图都出自该论文的当前版本。品牌标识、新闻截图、装饰性生成图片不再收录。
 
-<a id="neuron"></a>
+<a id="neuron" name="neuron"></a>
 ## 2. 神经元与深度网络
 
 **对应课件第 11–15 页。** 生物神经元通过树突接收信号、轴突传递信号，树突和突触具有复杂的非线性行为。课件用“约 1000 亿个神经元”作为人脑规模的粗略量级说明，人工神经元只抽象其中的加权整合与非线性响应，不等同于完整的生物机制。
@@ -81,7 +81,7 @@ $$
 
 $x_i$ 是第 $i$ 个输入， $y_i$ 是目标值或分类标签， $\Theta$ 是全部可学习参数。课件示例取标量输出 $f(x;\Theta)\in\mathbb R$ ；多分类或多输出任务可改为向量输出。
 
-<a id="forward"></a>
+<a id="forward" name="forward"></a>
 ## 3. 前向传播与完整例题
 
 **对应课件第 16–20 页。** 前向传播由输入逐层计算预测。沿用课件权重转置的约定：
@@ -103,7 +103,7 @@ $$
 $$
 
 $$
-\operatorname{ReLU}(x)=\max(0,x),\qquad \operatorname{softplus}(x)=\log(1+e^x).
+\mathrm{ReLU}(x)=\max(0,x),\qquad \mathrm{softplus}(x)=\log(1+e^x).
 $$
 
 ![四种激活函数的课件曲线，第16页](../assets/ch01/activation-overview.png)
@@ -157,7 +157,7 @@ $$
 
 如果坚持使用初始图的 $+1.5$ ，则第三个隐藏值改为 $\sigma(1.35)\approx0.79413$ ，最后预测约为 **0.79147**；它不能同时得到原演示的 $0.16$ 和 $0.62$ 。以上两套数据明确区分，避免把笔误当成正确推导。
 
-<a id="training"></a>
+<a id="training" name="training"></a>
 ## 4. 目标函数、梯度下降与反向传播
 
 **对应课件第 21–22 页。** 训练是在数据集上寻找使平均损失最小的参数：
@@ -209,7 +209,7 @@ flowchart LR
   U --> F
 ```
 
-<a id="cnn"></a>
+<a id="cnn" name="cnn"></a>
 ## 5. CNN 与卷积完整例题
 
 **对应课件第 24–47 页。** 卷积神经网络的基本流程是卷积、非线性激活、降采样或池化，再由全连接层完成分类或回归。卷积层扫描局部区域，学习边缘、纹理等局部特征；不同卷积核生成不同特征图。较高层结合这些特征形成更抽象的表示，全连接层将展平后的特征映射到输出空间。
@@ -270,7 +270,7 @@ $$
 
 参考：课件原链指向 Stanford 的 Feature extraction using convolution；完整数值已重算校验，不依赖该旧网页仍可访问。
 
-<a id="conv-options"></a>
+<a id="conv-options" name="conv-options"></a>
 ## 6. 填充、步幅、通道和池化
 
 **对应课件第 48–56 页及讲者备注。**
@@ -322,17 +322,17 @@ $$
 对本例整张 $3\times3$ 特征图做一次池化：
 
 $$
-\operatorname{MaxPool}(Y_1)=5,\qquad\operatorname{MaxPool}(Y_2)=4,
+\mathrm{MaxPool}(Y_1)=5,\qquad\mathrm{MaxPool}(Y_2)=4,
 $$
 
 $$
-\operatorname{AvgPool}(Y_1)=\frac{30}{9}=\frac{10}{3}\approx3.3333,\qquad
-\operatorname{AvgPool}(Y_2)=\frac{24}{9}=\frac83\approx2.6667.
+\mathrm{AvgPool}(Y_1)=\frac{30}{9}=\frac{10}{3}\approx3.3333,\qquad
+\mathrm{AvgPool}(Y_2)=\frac{24}{9}=\frac83\approx2.6667.
 $$
 
 **第 56 页平均池化有笔误：** 原式把 $Y_2$ 九项之和除以 6，得到 4。九个元素的平均必须除以 9；4 是这张图的最大值，也是错误除以 6 的结果，不能当作平均池化值。
 
-<a id="rnn"></a>
+<a id="rnn" name="rnn"></a>
 ## 7. RNN 与长期依赖
 
 **对应课件第 58–60 页。** 循环神经网络在序列各步共享参数，用隐藏状态传递历史信息。补充标准形式：
@@ -349,7 +349,7 @@ $$
 
 当依赖距离很长，普通 RNN 难以保留所需信息，反向传播中的连续 Jacobian 乘积可能使梯度衰减或放大。LSTM 通过单独的细胞状态与门控机制改善长期信息传递，但不能保证任意长度依赖都能无损记住。
 
-<a id="lstm"></a>
+<a id="lstm" name="lstm"></a>
 ## 8. LSTM 的状态与门控公式
 
 **对应课件第 61–65 页。** LSTM（Long Short-Term Memory，长短期记忆网络）是 RNN 的一种门控变体。普通 RNN 的循环单元主要是简单的非线性变换；LSTM 引入细胞状态和遗忘门、输入门、输出门。
