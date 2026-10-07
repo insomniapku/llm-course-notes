@@ -130,8 +130,10 @@ $$
 **对应课件第 16–26 页。** 自回归（Autoregressive，AT）把联合概率分解为：
 
 $$
-p(y\mid x)=\prod_{t=1}^{L}p(y_t\mid y_{<t},x).
+p(y\mid x)=\prod_{t=1}^{L}p(y_t\mid y_{1:t-1},x).
 $$
+
+下标 `1:t-1` 表示前 t−1 个已生成的 token；第一步的生成历史为空，仍以 BOS 提供序列起始输入。
 
 ### 4.1 “机器学习”的逐步生成
 
@@ -448,7 +450,7 @@ Decoder-only 批量生成时，若代码直接取 `logits[:, -1, :]`，左填充
 **对应课件第 46–47 页。** Greedy decoding 每步选择当前最高概率 token：
 
 $$
-y_t=\arg\max_v p(v\mid y_{<t},x).
+y_t=\arg\max_v p(v\mid y_{1:t-1},x).
 $$
 
 局部最优不保证整条路径最大。课件仅有 A、B 两个 token 的三步树给出：
@@ -481,7 +483,7 @@ flowchart LR
 完整枚举长度 $L$ 的候选大约有 $V^L$ 条，通常不可行。Beam Search 每步保存 $k$ 条评分最高的前缀；扩展这些前缀后，再从候选中选前 $k$ 条。常用评分是：
 
 $$
-\log p(y\mid x)=\sum_t\log p(y_t\mid y_{<t},x),
+\log p(y\mid x)=\sum_t\log p(y_t\mid y_{1:t-1},x),
 $$
 
 可以按任务加入长度归一化或惩罚。 $k=1$ 退化为 greedy；有限 beam 会剪枝，仍不保证全局最优。
