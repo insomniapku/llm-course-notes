@@ -1,0 +1,480 @@
+[
+  {
+    "path": "assets/ch01/alphafold-accuracy.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "d6c033d3d03d.jpeg"
+    ],
+    "source_pages": [
+      6
+    ],
+    "sha256": "7d013d0e8e58330ed29674fec6a897123ffaf5de550494c75ba1b19cf5a5d775",
+    "size_bytes": 64104
+  },
+  {
+    "path": "assets/ch01/alphafold-structures.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "f2397e8d1249.jpeg",
+      "25dc5146d8be.jpeg"
+    ],
+    "source_pages": [
+      6
+    ],
+    "sha256": "ae3b2b578f154e92bfdccfa84b1ea0e00d51da84ea1a7b580f42f860a2cb1c29",
+    "size_bytes": 98060
+  },
+  {
+    "path": "assets/ch01/llm-timeline.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "ecb55cf9b71f.png"
+    ],
+    "source_pages": [
+      7
+    ],
+    "sha256": "3dcefbfe432d9fbaa4ca84462dae323a38184a0c6502e9d266885328ba692880",
+    "size_bytes": 141588
+  },
+  {
+    "path": "assets/ch01/llama-derivatives.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "00f8c9e5876f.png"
+    ],
+    "source_pages": [
+      8
+    ],
+    "sha256": "25fb1f189f0163b1fceba7a5104c9adf14fbbbd5f21c1071e01b996d8ad6c276",
+    "size_bytes": 166189
+  },
+  {
+    "path": "assets/ch01/llama-evolution.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "1b36ad2e8791.png"
+    ],
+    "source_pages": [
+      9
+    ],
+    "sha256": "259b4be6f31a550f2f40345d9e0d9f548d8d6a5733adab4c3a875dd299c9d938",
+    "size_bytes": 99147
+  },
+  {
+    "path": "assets/ch01/chatglm-evolution.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "a36d407985a9.png"
+    ],
+    "source_pages": [
+      9
+    ],
+    "sha256": "6f91008216763279f371e74ead5617a4f76ec02a7eb383756d703f7c1d72aed8",
+    "size_bytes": 95837
+  },
+  {
+    "path": "assets/ch01/dnn-layers.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "568cb04ed9a1.tiff",
+      "12d31848d485.tiff"
+    ],
+    "source_pages": [
+      14
+    ],
+    "sha256": "b65376edb792c56eecfcd891478588b63e279a6b7453acf181173fdde4e289b9",
+    "size_bytes": 367179
+  },
+  {
+    "path": "assets/ch01/activation-overview.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "5ad691bb111d.png"
+    ],
+    "source_pages": [
+      16
+    ],
+    "sha256": "09ed97e184b24874a4ca970691d93a06b31ff02a82d301d10015d6b0e1ef84ac",
+    "size_bytes": 38178
+  },
+  {
+    "path": "assets/ch01/cnn-architecture.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "fe01b445a236.png"
+    ],
+    "source_pages": [
+      24
+    ],
+    "sha256": "00f522f018a89740410a54671453b9493ae8e1c4e53b38729f0dd9c1a0ffc5d8",
+    "size_bytes": 43725
+  },
+  {
+    "path": "assets/ch01/cnn-classification.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "293ab0f79b17.png"
+    ],
+    "source_pages": [
+      25
+    ],
+    "sha256": "eaac4f5cdb9c75aeee9f2e299e03f76b6d6b0f7eea9a61524a9653f6246f86f7",
+    "size_bytes": 136813
+  },
+  {
+    "path": "assets/ch01/rnn-unrolled.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "0fa1a9615b89.png"
+    ],
+    "source_pages": [
+      58
+    ],
+    "sha256": "cbffe7bb78e95be37b1cc4a89477f5a17a872ea9ed4cd99a8868ede13f13f3ec",
+    "size_bytes": 92854
+  },
+  {
+    "path": "assets/ch01/rnn-dependency.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "2bcabe57a529.png"
+    ],
+    "source_pages": [
+      59
+    ],
+    "sha256": "11a6214b58a34ba8ce0902a23cecadf6ff0e5c9080cd49b56efc4f352d8a4c3f",
+    "size_bytes": 161237
+  },
+  {
+    "path": "assets/ch01/lstm-architecture.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "f5f8d0999cf2.png",
+      "9ef0aeb8ba4e.png",
+      "345e1f91acea.png"
+    ],
+    "source_pages": [
+      60,
+      61,
+      62
+    ],
+    "sha256": "aa9b120dc126bddb3ed3bcd9666dd1428d1a70f4021137b3dff023ec5b550cc0",
+    "size_bytes": 393872
+  },
+  {
+    "path": "assets/ch01/lstm-core.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "141df91d2a36.png",
+      "dc2b98498714.png"
+    ],
+    "source_pages": [
+      63
+    ],
+    "sha256": "c4c4664f98ef4ce2f107dead646be095ca194c086f35644bbedd4637f16b58cd",
+    "size_bytes": 51580
+  },
+  {
+    "path": "assets/ch01/lstm-forget-input.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "8462a501feb0.png",
+      "8bc3dc738aee.png"
+    ],
+    "source_pages": [
+      64
+    ],
+    "sha256": "c3dec5bd9f94900d657d7b42214dc6da749827483fc1e0a9f215d9d5f11ef692",
+    "size_bytes": 131776
+  },
+  {
+    "path": "assets/ch01/lstm-update-output.png",
+    "source_pptx": "1. 快速理解神经网络 2026秋.pptx",
+    "source_media": [
+      "635f665c327b.png",
+      "d4929243878c.png"
+    ],
+    "source_pages": [
+      65
+    ],
+    "sha256": "83dd6cef36db6f7ff64c8c90df1a8beb1a8d446aba9ef0385368e355127e4fbc",
+    "size_bytes": 133571
+  },
+  {
+    "path": "assets/ch02/position-encoding.png",
+    "source_pptx": "2. Self Attention 2026秋.pptx",
+    "source_media": [
+      "acfe4dbfc233.png"
+    ],
+    "source_pages": [
+      32
+    ],
+    "sha256": "fd94c20c57d40aa4c4afa4096bf1c14176fbc02b708d8b3d5410422db9096439",
+    "size_bytes": 43839
+  },
+  {
+    "path": "assets/ch02/attention-convolution.png",
+    "source_pptx": "2. Self Attention 2026秋.pptx",
+    "source_media": [
+      "7abb2a601d18.png"
+    ],
+    "source_pages": [
+      35
+    ],
+    "sha256": "773a39489a05c2b64ff616f34b4bef72f76321cc137f25507ee0ad99d1330862",
+    "size_bytes": 40849
+  },
+  {
+    "path": "assets/ch02/vit-data-scaling.png",
+    "source_pptx": "2. Self Attention 2026秋.pptx",
+    "source_media": [
+      "e0e11ccd345f.png"
+    ],
+    "source_pages": [
+      36
+    ],
+    "sha256": "a189fb2ea358871e3949e5bfad58a74605f12faf07305f3ba3f33f8ecb8616c8",
+    "size_bytes": 64683
+  },
+  {
+    "path": "assets/ch02/degradation.png",
+    "source_pptx": "2. Self Attention 2026秋.pptx",
+    "source_media": [
+      "bca5f68615a4.png"
+    ],
+    "source_pages": [
+      39
+    ],
+    "sha256": "8ed802ab364238c0066b7a47beb12a8873d96a23fe933af44baf9a9de4ef72a3",
+    "size_bytes": 148618
+  },
+  {
+    "path": "assets/ch02/resnet34.png",
+    "source_pptx": "2. Self Attention 2026秋.pptx",
+    "source_media": [
+      "102c3fd15687.png"
+    ],
+    "source_pages": [
+      41
+    ],
+    "sha256": "c94404ea219be14225ec54ea5082bcca39ca416e54c7fe56fb71a5cdfa1f48e5",
+    "size_bytes": 111760
+  },
+  {
+    "path": "assets/ch02/activation-plots-1.png",
+    "source_pptx": "2. Self Attention 2026秋.pptx",
+    "source_media": [
+      "816b028805e5.png",
+      "4de37f10a8a4.png",
+      "dee72355fccf.png"
+    ],
+    "source_pages": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      61
+    ],
+    "sha256": "81368ec6cc6ba358ccb422d776a8a732002797c49906699029149a14746c24f3",
+    "size_bytes": 104753
+  },
+  {
+    "path": "assets/ch02/activation-plots-2.png",
+    "source_pptx": "2. Self Attention 2026秋.pptx",
+    "source_media": [
+      "19058aeb876a.png",
+      "058bafc23cf1.png",
+      "de6ba1420375.png"
+    ],
+    "source_pages": [
+      48,
+      49,
+      50,
+      51,
+      52,
+      53
+    ],
+    "sha256": "d1d746be4f5764aebd28b4bd0ebed8dc9eb5f7ded658d9dca3f6fc12b3caf143",
+    "size_bytes": 115129
+  },
+  {
+    "path": "assets/ch02/activation-plots-3.png",
+    "source_pptx": "2. Self Attention 2026秋.pptx",
+    "source_media": [
+      "82d9fe3a7925.png",
+      "d35363838e03.png",
+      "ba237ff9d300.png"
+    ],
+    "source_pages": [
+      61,
+      62,
+      63
+    ],
+    "sha256": "07bd21fd454175c6c15d75ed008b8a2ba16c3ac62da39fe1a7b87a635d2c2917",
+    "size_bytes": 103248
+  },
+  {
+    "path": "assets/ch03/transformer-architecture.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "681ea0c367ff.png"
+    ],
+    "source_pages": [
+      30,
+      50,
+      51
+    ],
+    "sha256": "8caefa71c104b09f1effeb441a9a9638c9644abdc9e4c236b388f3ce6ffecbd8",
+    "size_bytes": 100109
+  },
+  {
+    "path": "assets/ch03/encoder.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "4427cf6973dc.png"
+    ],
+    "source_pages": [
+      4,
+      13,
+      20
+    ],
+    "sha256": "251f62c29aea070bf0ae5a5de1d1d9dc917a6c01b665d12029fdc9c3dc02ea21",
+    "size_bytes": 71407
+  },
+  {
+    "path": "assets/ch03/decoder.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "11a64f459e03.png"
+    ],
+    "source_pages": [
+      19,
+      20
+    ],
+    "sha256": "e9f45f949d8d41604bc3b4669bec9c8938124a44dda0ec6e6eb9bd4318c14554",
+    "size_bytes": 59330
+  },
+  {
+    "path": "assets/ch03/pre-post-ln.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "ffb5e5055066.png"
+    ],
+    "source_pages": [
+      14
+    ],
+    "sha256": "a8486f34a39cfd2d0686162fd183a66257bdd1bb57d0eb9bf1495ac792458243",
+    "size_bytes": 36884
+  },
+  {
+    "path": "assets/ch03/next-token-alignment.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "e0c906ae96f1.png"
+    ],
+    "source_pages": [
+      36
+    ],
+    "sha256": "ccbf94a9c1fea31aa2438fc2b1e842a15e6f18d11aee59d4af4ab020be8327aa",
+    "size_bytes": 257138
+  },
+  {
+    "path": "assets/ch03/cross-entropy-example.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "ebb0da7c5b32.png"
+    ],
+    "source_pages": [
+      39,
+      40
+    ],
+    "sha256": "fee1e47570e0d88fdf8a39ef65587e8d564c7f71e80472b86e2099dea418d52c",
+    "size_bytes": 461429
+  },
+  {
+    "path": "assets/ch03/optimizer-contours.gif",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "f58dd3a57c47.gif"
+    ],
+    "source_pages": [
+      41
+    ],
+    "sha256": "f58dd3a57c47429ea7ab020b370e62e361670cd1f8a502dbaa3c0a2c67662d49",
+    "size_bytes": 914580
+  },
+  {
+    "path": "assets/ch03/optimizer-surface.gif",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "a3d84d671ff1.gif"
+    ],
+    "source_pages": [
+      41
+    ],
+    "sha256": "a3d84d671ff120170146dbae76456ac9c2ab5ad15f50ac828791752451173b29",
+    "size_bytes": 731184
+  },
+  {
+    "path": "assets/ch03/lr-warmup.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "99a61fbee783.png"
+    ],
+    "source_pages": [
+      42
+    ],
+    "sha256": "56a05c8103ebc81b96e779e5c4721b6fa780879bf1bba12a3c7c1306bff4d9dc",
+    "size_bytes": 11855
+  },
+  {
+    "path": "assets/ch03/lr-strategies.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "733f96b682e5.png"
+    ],
+    "source_pages": [
+      42
+    ],
+    "sha256": "5e99957aa17f6997c7b320898be527a933f22ddd0b8ef83a56b8fe4a5eb26fca",
+    "size_bytes": 89936
+  },
+  {
+    "path": "assets/ch03/lr-cosine.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "e9f594be28e5.png"
+    ],
+    "source_pages": [
+      43
+    ],
+    "sha256": "25114692841305a1f22da34977a8f53ac762e698aefbccab1a0e772659dfe36e",
+    "size_bytes": 132851
+  },
+  {
+    "path": "assets/ch03/beam-search.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "16344e364a6d.png"
+    ],
+    "source_pages": [
+      47
+    ],
+    "sha256": "6cc08d4be1b8f35772a3cedfb888f26178305b5204be44982e7ea61beccdc0ed",
+    "size_bytes": 129824
+  },
+  {
+    "path": "assets/ch03/temperature.png",
+    "source_pptx": "3.Transformer 2026秋.pptx",
+    "source_media": [
+      "25f3951b29eb.png"
+    ],
+    "source_pages": [
+      48
+    ],
+    "sha256": "6d36c012fe38e9c2aa23b5c43c04d65728aec9efae2eb4bfa3cc461da175a1d2",
+    "size_bytes": 515942
+  }
+]
