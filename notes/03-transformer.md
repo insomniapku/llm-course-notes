@@ -67,7 +67,7 @@ $$
 \operatorname{FFN}(x)=\max(0,xW_1+b_1)W_2+b_2,
 $$
 
-其中 $W_1\in\mathbb R^{d\times d_{\text{ff}}}$、$W_2\in\mathbb R^{d_{\text{ff}}\times d}$。同一层的 FFN 参数在各位置共享，FFN 负责逐位置的非线性变换，注意力负责跨位置的信息混合。不同 block 通常有不同参数。实际训练还可包含 dropout；上述公式突出课件讲解的主干。
+其中 $W_1\in\mathbb R^{d\times d_{\text{ff}}}$ 、 $W_2\in\mathbb R^{d_{\text{ff}}\times d}$ 。同一层的 FFN 参数在各位置共享，FFN 负责逐位置的非线性变换，注意力负责跨位置的信息混合。不同 block 通常有不同参数。实际训练还可包含 dropout；上述公式突出课件讲解的主干。
 
 残差相加要求两个分支形状匹配，它为梯度提供直接路径。课件第 12 页与第 2 章的残差内容重复，完整原理与 ResNet 对照见[第 2 章](02-self-attention.md#residual)。
 
@@ -80,7 +80,7 @@ BERT 使用 Transformer encoder 类型的架构；它通过双向上下文形成
 
 ### 3.1 LayerNorm 的完整公式
 
-课件对一个 $K$ 维向量写 $x_i'=(x_i-m)/\sigma$。这里均值与标准差来自**当前向量的特征维**：
+课件对一个 $K$ 维向量写 $x_i'=(x_i-m)/\sigma$ 。这里均值与标准差来自**当前向量的特征维**：
 
 $$
 \mu=\frac1D\sum_{j=1}^D x_j,\qquad
@@ -91,11 +91,11 @@ $$
 \operatorname{LN}(x)_j=\gamma_j\frac{x_j-\mu}{\sqrt{\operatorname{var}(x)+\epsilon}}+\beta_j.
 $$
 
-补充的 $\epsilon>0$ 防止除零，$\gamma,\beta$ 是可学习的缩放与平移参数。归一化后、仿射变换前的统计量被控制，但最终输出不必严格均值为 0、方差为 1。
+补充的 $\epsilon>0$ 防止除零， $\gamma,\beta$ 是可学习的缩放与平移参数。归一化后、仿射变换前的统计量被控制，但最终输出不必严格均值为 0、方差为 1。
 
 ### 3.2 为什么序列模型常用 LayerNorm
 
-输入通常为 $X\in\mathbb R^{B\times T\times D}$：$B$ 是 batch，$T$ 是序列长度，$D$ 是隐藏维度。
+输入通常为 $X\in\mathbb R^{B\times T\times D}$ ： $B$ 是 batch， $T$ 是序列长度， $D$ 是隐藏维度。
 
 | 对比项 | LayerNorm | BatchNorm |
 |---|---|---|
@@ -109,7 +109,7 @@ $$
 
 ### 3.3 Post-LN 与 Pre-LN
 
-对于任一注意力或 FFN 子层 $F$：
+对于任一注意力或 FFN 子层 $F$ ：
 
 $$
 \text{Post-LN}: y=\operatorname{LN}(x+F(x)),\qquad
@@ -200,7 +200,7 @@ $$
 
 **对应课件第 30–32 页。** 在 self-attention 中，QKV 来自同一表示序列；在 cross-attention 中，**Q 来自 Decoder 当前层表示，K 与 V 来自 Encoder 输出**。它让目标生成位置选择源序列里相关的信息。
 
-设 $H_e\in\mathbb R^{N\times d}$ 为源表示，$H_d\in\mathbb R^{T\times d}$ 为经过 masked self-attention 的目标表示：
+设 $H_e\in\mathbb R^{N\times d}$ 为源表示， $H_d\in\mathbb R^{T\times d}$ 为经过 masked self-attention 的目标表示：
 
 $$
 Q=H_dW_Q,\qquad K=H_eW_K,\qquad V=H_eW_V,
@@ -210,15 +210,15 @@ $$
 O=\operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M_{\text{source-padding}}\right)V.
 $$
 
-分数矩阵形状为 $T\times N$，源长度与目标长度不必相同。Decoder 目标序列需要因果限制，Encoder 源序列通常已全部可见，因此 cross-attention 不使用目标的下三角掩码，但应屏蔽源序列 padding。
+分数矩阵形状为 $T\times N$ ，源长度与目标长度不必相同。Decoder 目标序列需要因果限制，Encoder 源序列通常已全部可见，因此 cross-attention 不使用目标的下三角掩码，但应屏蔽源序列 padding。
 
-课件三源向量示例为 $a^1,a^2,a^3$：Decoder 从 START 得到 $q$，分别计算与 $k^1,k^2,k^3$ 的分数，归一化后汇聚：
+课件三源向量示例为 $a^1,a^2,a^3$ ：Decoder 从 START 得到 $q$ ，分别计算与 $k^1,k^2,k^3$ 的分数，归一化后汇聚：
 
 $$
 v_{\text{context}}=\alpha_1'v^1+\alpha_2'v^2+\alpha_3'v^3.
 $$
 
-下一步加入已生成的“机”，Decoder 查询变为 $q'$，权重重新计算，得到 $v'_{\text{context}}$。Encoder 输出可在这次生成中复用，但每个 Decoder 层拥有自己的投影参数。
+下一步加入已生成的“机”，Decoder 查询变为 $q'$ ，权重重新计算，得到 $v'_{\text{context}}$ 。Encoder 输出可在这次生成中复用，但每个 Decoder 层拥有自己的投影参数。
 
 课件提到 Google 的 T5：Text-to-Text Transfer Transformer，使用 Encoder–Decoder 结构，将任务统一组织成文本到文本形式。
 
@@ -261,7 +261,7 @@ $$
 <a id="loss"></a>
 ## 8. 交叉熵完整数值例题
 
-**对应课件第 37–40 页及图片。** 用 $S$ 表示参与损失的有效 token 数，$t_i$ 表示第 $i$ 个真实 token 的词表索引，$p_{i,t_i}$ 表示该位置对正确 token 的预测概率：
+**对应课件第 37–40 页及图片。** 用 $S$ 表示参与损失的有效 token 数， $t_i$ 表示第 $i$ 个真实 token 的词表索引， $p_{i,t_i}$ 表示该位置对正确 token 的预测概率：
 
 $$
 L=-\frac1S\sum_{i=1}^{S}\log p_{i,t_i}.
@@ -353,7 +353,7 @@ $$
 
 课件正文强调 RMSprop、Adam，原动画图例还包括 SGD、Momentum、NAG、AdaGrad、AdaDelta。动画展示特定合成损失面的路径，不能直接当作真实任务的优化器排名。
 
-补充 Adam 的核心公式，记当前梯度 $g_t$：
+补充 Adam 的核心公式，记当前梯度 $g_t$ ：
 
 $$
 m_t=\beta_1m_{t-1}+(1-\beta_1)g_t,\qquad
@@ -403,7 +403,7 @@ max_lr = 5e-4
 
 ![余弦调度示例曲线，课件第43页](../assets/ch03/lr-cosine.png)
 
-设预热步数 $T_w=10$，总优化更新数 $T=2000$。以下是与这些参数相容的一种明确实现，不宣称课件提供了完整调度代码：
+设预热步数 $T_w=10$ ，总优化更新数 $T=2000$ 。以下是与这些参数相容的一种明确实现，不宣称课件提供了完整调度代码：
 
 $$
 \eta_t=\eta_{\max}\frac{t}{T_w},\quad 0\le t\le T_w,
@@ -414,7 +414,7 @@ $$
 \left[1+\cos\left(\pi\frac{t-T_w}{T-T_w}\right)\right],\quad T_w<t\le T.
 $$
 
-在这个约定下 $\eta_0=0$、$\eta_{10}=5\times10^{-4}$、$\eta_{1005}=3\times10^{-4}$、$\eta_{2000}=10^{-4}$。步数是 optimizer update 的计数；若增加梯度累积，一个更新可能对应多个 micro-batch，调度器计数需一致。
+在这个约定下 $\eta_0=0$ 、 $\eta_{10}=5\times10^{-4}$ 、 $\eta_{1005}=3\times10^{-4}$ 、 $\eta_{2000}=10^{-4}$ 。步数是 optimizer update 的计数；若增加梯度累积，一个更新可能对应多个 micro-batch，调度器计数需一致。
 
 余弦衰减是平滑 annealing，不能等同于分段常数的 step decay；也不保证避开局部最优。原课件把二者混写，这里保留方法并修正分类。
 
@@ -462,7 +462,7 @@ $$
 | AB 后选择 B | 0.6 |
 | BB 后选择 B | 0.9 |
 
-贪心路径是 A→B→B（红色），概率为 $0.6\times0.6\times0.6=0.216$；图中更优路径是 B→B→B（绿色），概率为 $0.4\times0.9\times0.9=0.324$。
+贪心路径是 A→B→B（红色），概率为 $0.6\times0.6\times0.6=0.216$ ；图中更优路径是 B→B→B（绿色），概率为 $0.4\times0.9\times0.9=0.324$ 。
 
 ```mermaid
 flowchart LR
@@ -484,7 +484,7 @@ $$
 \log p(y\mid x)=\sum_t\log p(y_t\mid y_{<t},x),
 $$
 
-可以按任务加入长度归一化或惩罚。$k=1$ 退化为 greedy；有限 beam 会剪枝，仍不保证全局最优。
+可以按任务加入长度归一化或惩罚。 $k=1$ 退化为 greedy；有限 beam 会剪枝，仍不保证全局最优。
 
 ![Beam Search 保存多条前缀的原课件图，第47页](../assets/ch03/beam-search.png)
 
@@ -495,13 +495,13 @@ $$
 <a id="temperature"></a>
 ## 12. 温度采样
 
-**对应课件第 48 页，包括图片中的公式与说明。** 给定第 $i$ 个 token 的 logit $z_i$，温度 $\tau>0$ 的分布为：
+**对应课件第 48 页，包括图片中的公式与说明。** 给定第 $i$ 个 token 的 logit $z_i$ ，温度 $\tau>0$ 的分布为：
 
 $$
 p_i(\tau)=\frac{\exp(z_i/\tau)}{\sum_{j=1}^V\exp(z_j/\tau)}.
 $$
 
-课件用 $T$ 表示温度；这里用 $\tau$ 避免与训练总步数混淆。$\tau=1$ 是普通 softmax；小于 1 使分布更尖锐，大于 1 使分布更平缓。固定 logits 时，增大正温度一般提高分布熵，使低分 token 更可能被抽到。
+课件用 $T$ 表示温度；这里用 $\tau$ 避免与训练总步数混淆。 $\tau=1$ 是普通 softmax；小于 1 使分布更尖锐，大于 1 使分布更平缓。固定 logits 时，增大正温度一般提高分布熵，使低分 token 更可能被抽到。
 
 ![温度改变分布形状的课件示意，第48页](../assets/ch03/temperature.png)
 
