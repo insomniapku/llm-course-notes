@@ -264,7 +264,7 @@ return self.w2(F.silu(self.w1(x)) * self.w3(x))
 
 $$
 N_{\mathrm{cache}}=2BLTH_{\mathrm{KV}}d_h,
-\qquad \mathrm{bytes}=N_{\mathrm{cache}}\times\mathrm{bytes\_per\_element}.
+\qquad \mathrm{bytes}=N_{\mathrm{cache}}\times\mathrm{bytesPerElement}.
 $$
 
 B 为 batch，L 为层数，T 为缓存长度，2 对应 K 与 V。相同其他配置下，GQA 相对 MHA 的 KV 存储比约为 $H_{\mathrm{KV}}/H_q$ 。它不把长序列 attention 的所有计算都减少同样倍数。
@@ -412,10 +412,10 @@ x_{2j}\sin(m\theta_j)+x_{2j+1}\cos(m\theta_j)
 \end{pmatrix}.
 $$
 
-定义 $\mathrm{rotate\_pair}(x)=(-x_1,x_0,-x_3,x_2,\ldots)$ ，把每一对的 cos/sin 重复到两个坐标，可写为：
+定义 $\mathrm{rotatePair}(x)=(-x_1,x_0,-x_3,x_2,\ldots)$ ，把每一对的 cos/sin 重复到两个坐标，可写为：
 
 $$
-\mathrm{RoPE}(x,m)=x\odot\cos_m+\mathrm{rotate\_pair}(x)\odot\sin_m.
+\mathrm{RoPE}(x,m)=x\odot\cos_m+\mathrm{rotatePair}(x)\odot\sin_m.
 $$
 
 每个向量的元素运算为 O(d)，无需 O(d²) 的稠密矩阵乘法。这只表示**施加 RoPE**的成本，注意力整体仍须计算 token 间匹配。

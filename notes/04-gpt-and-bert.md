@@ -234,7 +234,7 @@ p_i^{\mathrm{end}}=\frac{e^{E^\top T_i}}{\sum_{j\in\mathrm{passage}}e^{E^\top T_
 $$
 
 $$
-(i^*,j^*)=\arg\max_{i\le j}\left(S^\top T_i+E^\top T_j\right),
+(i^{\ast},j^{\ast})=\arg\max_{i\le j}\left(S^\top T_i+E^\top T_j\right),
 \qquad
 \mathcal L_{\mathrm{QA}}=-\log p_{i_{\mathrm{gold}}}^{\mathrm{start}}-\log p_{j_{\mathrm{gold}}}^{\mathrm{end}}.
 $$
@@ -393,7 +393,7 @@ cheese =>
 多选题给上下文及候选后续文本，比较语言模型似然。一般用每 token 平均对数似然减轻答案长度偏差。ARC、OpenBookQA、RACE 等任务还使用答案的条件/无条件概率比：
 
 $$
-\mathrm{score}(a)=\frac{P(a\mid c)}{P(a\mid\mathrm{answer\_context})}.
+\mathrm{score}(a)=\frac{P(a\mid c)}{P(a\mid\mathrm{answerContext})}.
 $$
 
 `answer_context` 为 `Answer: ` 或 `A: `，帮助扣除候选答案自身常见程度的影响。计算上可相减对数概率，避免小概率下溢。二分类使用 `True`/`False` 等自然语义标签，比任意 `0`/`1` 更贴近训练文本模式，但这是一种提示设计，并非保证正确率的规则。
