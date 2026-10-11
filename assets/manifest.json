@@ -476,5 +476,404 @@
     ],
     "sha256": "6d36c012fe38e9c2aa23b5c43c04d65728aec9efae2eb4bfa3cc461da175a1d2",
     "size_bytes": 515942
+  },
+  {
+    "path": "assets/ch04/model-types.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "3b9f7a9f96ee.png"
+    ],
+    "source_pages": [
+      5
+    ],
+    "sha256": "76b7931956f581672f82e869674378ca913cca43dda60b5b1214e4b6965352bc",
+    "size_bytes": 196048
+  },
+  {
+    "path": "assets/ch04/gpt1-task-format.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "f19aeb46104d.png"
+    ],
+    "source_pages": [
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "sha256": "b1473c3d35962d60426e0340a486e3f0e4544b738fc4d6b400dc6f0abe214b64",
+    "size_bytes": 145611
+  },
+  {
+    "path": "assets/ch04/gpt1-results.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "9cf7b03cc8f3.png"
+    ],
+    "source_pages": [
+      29
+    ],
+    "sha256": "23f96a07ba0ce859e809d504b1036ce8ad777d77d7b7eb8343858776af5e5269",
+    "size_bytes": 71953
+  },
+  {
+    "path": "assets/ch04/bert-glue.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "b08722546d01.png"
+    ],
+    "source_pages": [
+      43
+    ],
+    "sha256": "94308778d7138ad7ad3f4645ff7e7e25b9531f9bae093d8af90d0bbc95ad005d",
+    "size_bytes": 52789
+  },
+  {
+    "path": "assets/ch04/bert-pretraining.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "67c39ef651b5.jpeg"
+    ],
+    "source_pages": [
+      36
+    ],
+    "sha256": "0fc7c6996012f8ac1d081a24ab2507512ea496e4a54ee51b7e3bd3e961f8c96c",
+    "size_bytes": 320415
+  },
+  {
+    "path": "assets/ch04/bert-input.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "4e4979567b90.png"
+    ],
+    "source_pages": [
+      39
+    ],
+    "sha256": "cb5fcfe5edec96f345565cdac0d87c13c82787d6e71afdd50dd541e5658ce135",
+    "size_bytes": 25982
+  },
+  {
+    "path": "assets/ch04/bert-finetuning.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "dec29cf4ced6.jpeg"
+    ],
+    "source_pages": [
+      43
+    ],
+    "sha256": "77a2871f5a8cd9b824de944478de871e88cfdd27e08e640be55596f2dcee59eb",
+    "size_bytes": 205256
+  },
+  {
+    "path": "assets/ch04/bert-qa.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "5c4e254b900f.png"
+    ],
+    "source_pages": [
+      44
+    ],
+    "sha256": "2ef0a6bac0f43d48bf4dfde1d8696fbe55d6b9b03bbbdd302036ccce40103c83",
+    "size_bytes": 65581
+  },
+  {
+    "path": "assets/ch04/gpt2-lm-benchmarks.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "4a9f766084a8.png"
+    ],
+    "source_pages": [
+      58
+    ],
+    "sha256": "4700735b189db589fe2effde9e6efd97b4c1f7b5e22827207d9fc697cde2ba99",
+    "size_bytes": 88431
+  },
+  {
+    "path": "assets/ch04/gpt2-scaling.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "76e74475a438.png"
+    ],
+    "source_pages": [
+      59
+    ],
+    "sha256": "e22d95aef42876fbb9795cef307a60e911fb5118753372b8e7a200a45f6f0e47",
+    "size_bytes": 156714
+  },
+  {
+    "path": "assets/ch04/gpt3-meta-learning.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "a92c8842aef8.png"
+    ],
+    "source_pages": [
+      67
+    ],
+    "sha256": "fc1fbfd296bd932619e32584a977ab66ba3c121349c641f109538b607ff9b006",
+    "size_bytes": 61060
+  },
+  {
+    "path": "assets/ch04/gpt3-learning-modes.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "c8fc2ec3bf01.png"
+    ],
+    "source_pages": [
+      69,
+      70,
+      71,
+      72,
+      73
+    ],
+    "sha256": "4817f509fb6d0668e9d7a427026cc5dde2802aa035f03e944f8dd215867ebf7f",
+    "size_bytes": 147852
+  },
+  {
+    "path": "assets/ch04/gpt3-aggregate.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "3e6a5a6abf5e.png"
+    ],
+    "source_pages": [
+      68
+    ],
+    "sha256": "2809f51a5b0dc8b567b02b3fdbb47ddff08dcfb54b25f38c36c7d13a58133b58",
+    "size_bytes": 252406
+  },
+  {
+    "path": "assets/ch04/gpt3-validation.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "e0bfb6f0b8e4.png"
+    ],
+    "source_pages": [
+      78
+    ],
+    "sha256": "6cc8093b4f42848c4e0cf23afee1855c717db05bcf6062f11bd9d40fa375ed14",
+    "size_bytes": 99252
+  },
+  {
+    "path": "assets/ch04/gpt3-lambada.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "8d2afc0efa94.png"
+    ],
+    "source_pages": [
+      78
+    ],
+    "sha256": "7bc9cb9a050bac77838308621d50db8684188ad05d723b1d9932ab9c0c0ad41e",
+    "size_bytes": 70214
+  },
+  {
+    "path": "assets/ch04/gpt3-openqa.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "1bd5574c6468.png"
+    ],
+    "source_pages": [
+      79,
+      80,
+      81,
+      82
+    ],
+    "sha256": "ab5ae0260d3db819d322263edcc60c4e06848aa621b1ccda50ef798abfc2a9e2",
+    "size_bytes": 42160
+  },
+  {
+    "path": "assets/ch04/gpt3-triviaqa.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "e36c8236abb6.png"
+    ],
+    "source_pages": [
+      80,
+      81,
+      82
+    ],
+    "sha256": "cd6d388aa79efb35c6822a5591b4bf0dba0608fbd5c916e11122790df22be4f6",
+    "size_bytes": 71336
+  },
+  {
+    "path": "assets/ch04/gpt3-translation.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "e6816dc6e8ca.png"
+    ],
+    "source_pages": [
+      81,
+      82
+    ],
+    "sha256": "8a80564cf3ffc7b8f3bf8d217f78f7209158fc6ce0a8e6bc12458ca92d85e0bb",
+    "size_bytes": 101805
+  },
+  {
+    "path": "assets/ch04/gpt3-news.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "6b1cfe00ecdd.png"
+    ],
+    "source_pages": [
+      82
+    ],
+    "sha256": "ed4d9ec6c36298372a2b5946dcc6246c4cce04a3708e86e0a2b4fb9b86550a32",
+    "size_bytes": 162848
+  },
+  {
+    "path": "assets/ch04/gpt3-gender-bias.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "aac33ec9195c.png"
+    ],
+    "source_pages": [
+      85
+    ],
+    "sha256": "dc4346f168b780709f06c493da8c6398986e6b9fec4b6209609ebcc022826013",
+    "size_bytes": 78585
+  },
+  {
+    "path": "assets/ch04/gpt3-racial-bias.png",
+    "source_pptx": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "source_media": [
+      "12098f7ced16.png"
+    ],
+    "source_pages": [
+      85
+    ],
+    "sha256": "f121b4111c86f29dc4d19015e144ab70fe16902e3d7f571bc527b66e7d447e1a",
+    "size_bytes": 69187
+  },
+  {
+    "path": "assets/ch05/llama3-sizes.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "26539b56c119.png"
+    ],
+    "source_pages": [
+      3
+    ],
+    "sha256": "963362f09f5377c25ff7d562a7736bf026c31d6fe7d710c0ed1334a6ad098e13",
+    "size_bytes": 268075
+  },
+  {
+    "path": "assets/ch05/llama-architecture.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "8f8c009a2329.png"
+    ],
+    "source_pages": [
+      27
+    ],
+    "sha256": "92dbff042f6d867d391c29e1d0b1b5ad0469bc5d22210dce45e8e2bd36689385",
+    "size_bytes": 22976
+  },
+  {
+    "path": "assets/ch05/rmsnorm-benchmark.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "bda06142bcb0.png"
+    ],
+    "source_pages": [
+      9
+    ],
+    "sha256": "fc600fc2fd70f2f0d6435650eee0b9d081495fd69d7e6c747f3c6a4a6f707077",
+    "size_bytes": 93209
+  },
+  {
+    "path": "assets/ch05/swish-curves.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "a295a833575c.png"
+    ],
+    "source_pages": [
+      13
+    ],
+    "sha256": "3455d124fa792fdc82c784ceec0c8351c1856d84a5e99601805ab612c4d70d58",
+    "size_bytes": 80085
+  },
+  {
+    "path": "assets/ch05/swiglu-benchmark.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "a772e29d5f12.png"
+    ],
+    "source_pages": [
+      14
+    ],
+    "sha256": "60c3b35c141467f66dc00e965263e566ae81f46e67899b0b1b264ba50944598c",
+    "size_bytes": 509667
+  },
+  {
+    "path": "assets/ch05/rope-dot-product.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "cf3670570d47.png"
+    ],
+    "source_pages": [
+      20
+    ],
+    "sha256": "41a777ea610f3cf5998e9ae16adce3f6318047a02a1413189ab15b87f113e049",
+    "size_bytes": 109632
+  },
+  {
+    "path": "assets/ch05/rope-complex-form.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "e9d6fc118378.jpeg"
+    ],
+    "source_pages": [
+      21
+    ],
+    "sha256": "c094f1de90bf35329de2714ce5d2cbf6cce901126d91259c3827beac4de6e54b",
+    "size_bytes": 110238
+  },
+  {
+    "path": "assets/ch05/rope-rotation.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "f6b28c612bb5.jpeg"
+    ],
+    "source_pages": [
+      22
+    ],
+    "sha256": "bd9ed32c9a9f4265340a41df95bacf07a317ad3947a6233e5f262acc9adf55d3",
+    "size_bytes": 106601
+  },
+  {
+    "path": "assets/ch05/rope-general-form.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "83564582614d.jpeg"
+    ],
+    "source_pages": [
+      23,
+      24
+    ],
+    "sha256": "158245bd6ff0cb8ccff10f4c4caf08dc30c3b53105c650747fb0d445dcc47703",
+    "size_bytes": 460653
+  },
+  {
+    "path": "assets/ch05/rope-efficient-form.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "c3a937a57ecb.jpeg"
+    ],
+    "source_pages": [
+      25
+    ],
+    "sha256": "18a94a64cef8d30ae14fbc04a23a0a44dd4ce2d301021308420f1c56919dfaf7",
+    "size_bytes": 455363
+  },
+  {
+    "path": "assets/ch05/rope-implementation.png",
+    "source_pptx": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "source_media": [
+      "5f30782fa319.png"
+    ],
+    "source_pages": [
+      26
+    ],
+    "sha256": "025800ec89401bcc69bab05b35d9b58369f4c283cfb194563090bd3ceea5a5ad",
+    "size_bytes": 95244
   }
 ]

@@ -13,5 +13,15 @@
     "filename": "3.Transformer 2026秋.pptx",
     "slides": 51,
     "sha256": "201a1a23beac4fad52b4560888f596d8e25fb5a8af66b07f48f6dbd71f031f18"
+  },
+  {
+    "filename": "4.1 大模型进阶(GPT 123.Bert) 2026秋.pptx",
+    "slides": 86,
+    "sha256": "d074998cefefb587b3623a2111b7387448c2191f6839c88de9c7ac7bd9ce97cf"
+  },
+  {
+    "filename": "4.2 大模型进阶2(RMSNorm、Swish、ROPE) 2026秋.pptx",
+    "slides": 27,
+    "sha256": "e4f5194eddb7335e26962302cc5f2926440e2370ccb1130a92243d20bedc3839"
   }
 ]
